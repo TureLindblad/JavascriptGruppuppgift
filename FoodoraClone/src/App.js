@@ -1,14 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import Checkout from './Checkout';
 
 function App() {
-  
   return (
     <div className="App">
-      Hello, world!
+      {}
+      <Checkout />
     </div>
-    
   );
 }
 
