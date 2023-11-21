@@ -1,0 +1,34 @@
+section {
+    margin: 1em;
+    overflow: hidden;
+    width: 40em;
+}
+.itemList {
+    display: flex;
+    list-style: none;
+    transition: transform 0.5s ease;
+}
+.item {
+    margin: 1em;
+}
+.itemButton {
+    width: 10em;
+    height: 10em;
+    border-style: none;
+    background-color: grey;
+    cursor: pointer;
+}
+h4{
+    text-align: center;
+    color: white;
+}
+.navButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+.navButton {
+    display: inline;
+    flex-direction: column;
+    width: 4em;
+}

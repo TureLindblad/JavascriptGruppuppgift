@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import BrowsingSection from './components/BrowsingPage';
 
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
   return (
     <div className="App">
       Hello, world!
+      <BrowsingSection isFood={true}/>
+      <BrowsingSection isFood={false} isRestaurant={true}/>
     </div>
     
   );
