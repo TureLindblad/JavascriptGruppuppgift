@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../logo.svg";
+import logo from "../logo.svg"
 
 export default function BrowsingSection({ isFood = false, isRestaurant = false }) {
     const [itemList, setItemList] = useState([]);
@@ -33,7 +33,7 @@ export default function BrowsingSection({ isFood = false, isRestaurant = false }
 
             <ul className="itemList">
                 {itemList.map((item) => (
-                    <SectionItem key={item} item={item} />
+                    <SectionItem key={item.name} item={item} />
                 ))}
             </ul>
         </section>
@@ -76,14 +76,31 @@ function SectionItem({ item }) {
     return (
         <li className="item">
             <button className="itemButton" onClick={handleClick}>
-                <img src={logo} alt={item}></img>
-                <h4>{item}</h4>
+                <img src={item.image} alt={item.name}></img>
+                <h4>{item.name}</h4>
             </button>
         </li>
         
     )
 }
-//{name:"Burgers", image:logo} use objects as items??
-const foodItems = ["Burgers", "Pizza", "Sushi", "Kebab", "Pasta", "Sallad", ];
 
-const restaurantItems = ["Restaurant1", "Restaurant2", "Restaurant3", "Restaurant4", "Restaurant5"];
+const images = require.context('../media', true);
+const imageList = images.keys().map(image => images(image));
+
+const foodItems = [
+    { name: 'Burgers', image: imageList[0] },
+    { name: 'Kebab', image: imageList[1] },
+    { name: 'Pasta', image: imageList[2] },
+    { name: 'Pizza', image: imageList[3] },
+    { name: 'Salad', image: imageList[4] },
+    { name: 'Sushi', image: imageList[5] },
+    { name: 'Thai', image: imageList[6] }
+];
+
+const restaurantItems = [
+    { name: 'Restaurant1', image: logo },
+    { name: 'Restaurant2', image: logo },
+    { name: 'Restaurant3', image: logo },
+    { name: 'Restaurant4', image: logo },
+    { name: 'Restaurant5', image: logo }
+];

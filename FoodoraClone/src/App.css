@@ -2,6 +2,7 @@ section {
     margin: 1em;
     overflow: hidden;
     width: 40em;
+
 }
 .itemList {
     display: flex;
@@ -10,17 +11,21 @@ section {
 }
 .item {
     margin: 1em;
+    width: 10em;
 }
 .itemButton {
+    background-color: rgba(0, 0, 0, 0);
     width: 10em;
     height: 10em;
     border-style: none;
-    background-color: grey;
     cursor: pointer;
+}
+img {
+    border-radius: 1em;
+    width: 100%;
 }
 h4{
     text-align: center;
-    color: white;
 }
 .navButtonContainer {
     display: flex;
