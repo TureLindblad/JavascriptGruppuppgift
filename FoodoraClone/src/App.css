@@ -1,8 +1,8 @@
 section {
     margin: 1em;
+    padding: 1em;
     overflow: hidden;
     width: 40em;
-
 }
 .itemList {
     display: flex;
@@ -11,6 +11,7 @@ section {
 }
 .item {
     margin: 1em;
+    padding-top: 0.5em;
     width: 10em;
 }
 .itemButton {
