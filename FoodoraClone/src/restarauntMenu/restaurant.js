@@ -1,3 +1,5 @@
+import logo from "../logo.svg";
+
 const images = require.context('../restaurantImages', true);
 const imageList = images.keys().map(image => images(image));
 

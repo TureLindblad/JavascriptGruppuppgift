@@ -25,12 +25,10 @@ export default function BrowsingSection({ isFood = false, isRestaurant = false }
 
     function filterRestaurantSection({ item }) {
         for (let i = 0; i < restaurantItems.length; i++) {
-            restaurantItems.category.forEach((element) => {
-                alert(element);
+            restaurantItems[i].category.forEach((category) => {
+                if (category === item.name) alert(restaurantItems[i].name)
             });
         }
-        
-        //alert(restaurantItems[1].category);
     }
 
     return (
@@ -82,7 +80,7 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
 
 function SectionItem({ item, filterRestaurantSection }) {
     function handleClick() {
-        filterRestaurantSection(item);
+        filterRestaurantSection({ item });
     }
 
     return (
