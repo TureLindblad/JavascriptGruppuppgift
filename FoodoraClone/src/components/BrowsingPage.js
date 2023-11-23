@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "../logo.svg"
+import restaurant from "./restaurant.js"
 
 export default function BrowsingSection({ isFood = false, isRestaurant = false }) {
     const [itemList, setItemList] = useState([]);
