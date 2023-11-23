@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import BrowsingSection from './components/BrowsingPage';
+import RestaurantItems from './restarauntMenu/restaurant';
 
 
 function App() {
