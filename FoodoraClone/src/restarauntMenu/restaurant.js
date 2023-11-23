@@ -1,17 +1,6 @@
 const images = require.context('../restaurantImages', true);
 const imageList = images.keys().map(image => images(image));
 
-const foodItems = [
-    {name: 'Burgers', image: imageList[0]},
-    {name: 'Kebab', image: imageList[1]},
-    {name: 'Korv', image: imageList[2]},
-    {name: 'Pasta', image: imageList[3]},
-    {name: 'Pizza', image: imageList[4]},
-    {name: 'Sallad', image: imageList[5]},
-    {name: 'Sushi', image: imageList[6]},
-    {name: 'Thai', image: imageList[7]},
-]
-
 const RestaurantItems = [
     { id: 1, name: 'Kalles korvkiosk', image: imageList[2], ingredients: ['Korv', 'Potatismos'], categories: ['Korv', 'Hamburgare'] },
     { id: 3, name: 'Saras Sushi', image: imageList[6], ingredients: ['Ris', 'Fisk', 'Avokado'], categories: ['Sushi', 'Ramen'] },
