@@ -98,10 +98,12 @@ const foodItems = [
     { name: 'Thai', image: imageList[6] }
 ];
 
-const restaurantItems = [
+/*const restaurantItems = [
     { name: 'Restaurant1', image: logo },
     { name: 'Restaurant2', image: logo },
     { name: 'Restaurant3', image: logo },
     { name: 'Restaurant4', image: logo },
     { name: 'Restaurant5', image: logo }
-];
+];*/
+
+const restaurantItems = restaurant;
