@@ -4,6 +4,7 @@ import restaurant from "../restarauntMenu/restaurant.js"
 
 export default function BrowsingSection({ isFood = false, isRestaurant = false }) {
     const [itemList, setItemList] = useState([]);
+    const [restaurantItems, setRestaurantItems] = useState(restaurant);
     const [positionTracker, setPositionTracker] = useState(0);
 
     useEffect(() => {
@@ -16,25 +17,32 @@ export default function BrowsingSection({ isFood = false, isRestaurant = false }
         else {
             setItemList([]);
         }
-    }, [isFood, isRestaurant]);
+    }, [restaurantItems]);
 
     function handleListUpdate({ updatedPosition }) {
-        //setItemList(newList);
         setPositionTracker(updatedPosition);
+    }
+
+    function filterRestaurantSection({ item }) {
+        for (let i = 0; i < restaurantItems.length; i++) {
+            restaurantItems[i].category.forEach((category) => {
+                if (category === item.name) alert(restaurantItems[i].name)
+            });
+        }
     }
 
     return (
         <section>
             <div className="navButtonContainer">
                 <NavButton updateList={handleListUpdate} direction={"<--"}
-                itemList={itemList} isFood={isFood} positionTracker={positionTracker} />
+                itemList={itemList} isFood={isFood} positionTracker={positionTracker}  />
                 <NavButton updateList={handleListUpdate} direction={"-->"} 
                 itemList={itemList} isFood={isFood} positionTracker={positionTracker} />
             </div>
 
             <ul className="itemList">
                 {itemList.map((item) => (
-                    <SectionItem key={item.name} item={item} />
+                    <SectionItem key={item.name} item={item} filterRestaurantSection={filterRestaurantSection} />
                 ))}
             </ul>
         </section>
@@ -70,10 +78,11 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
     );
 }
 
-function SectionItem({ item }) {
+function SectionItem({ item, filterRestaurantSection }) {
     function handleClick() {
-        alert("clicked");
+        filterRestaurantSection({ item });
     }
+
     return (
         <li className="item">
             <button className="itemButton" onClick={handleClick}>
@@ -96,12 +105,4 @@ const foodItems = [
     { name: 'Salad', image: imageList[4] },
     { name: 'Sushi', image: imageList[5] },
     { name: 'Thai', image: imageList[6] }
-];
-
-const restaurantItems = [
-    { name: 'Restaurant1', image: logo },
-    { name: 'Restaurant2', image: logo },
-    { name: 'Restaurant3', image: logo },
-    { name: 'Restaurant4', image: logo },
-    { name: 'Restaurant5', image: logo }
 ];
