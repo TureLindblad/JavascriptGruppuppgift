@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import './Checkout.css';
+
+
+
 
 const Checkout = () => {
   // State-hooks för att hantera kundkorg, användaruppgifter, leveranssätt och saldo
@@ -109,7 +113,7 @@ const Checkout = () => {
         </label>
       </form>
 
-      <h2>Leveransinformation</h2>
+      <h2></h2>
       <label>
         Leveranssätt:
         <select value={deliveryMethod} onChange={(e) => setDeliveryMethod(e.target.value)}>
