@@ -19,27 +19,26 @@ export default function BrowsingPage() {
     const [restaurantItems, setRestaurantItems] = useState(restaurant);
 
     return (
-        <>
-            <BrowsingSection 
+        <main className="browsingMain">
+            <BrowsingSection
                 isFood={true}  
                 itemList={foodItems}
                 restaurantItems={restaurantItems}
                 setRestaurantItems={setRestaurantItems}
             />
-            <BrowsingSection 
+            <BrowsingSection
                 isRestaurant={true}
                 itemList={restaurantItems}
                 restaurantItems={restaurantItems}
                 setRestaurantItems={setRestaurantItems}
             />
-        </>
+        </main>
     );
 }
 
 function BrowsingSection({ isFood, setRestaurantItems, itemList }) {
     const [positionTracker, setPositionTracker] = useState(0);
     const [clickedItem, setClickedItem] = useState(null);
-    const [itemStyle, setItemStyle] = useState({});
 
     function handleListUpdate({ updatedPosition }) {
         setPositionTracker(updatedPosition);
@@ -47,24 +46,13 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList }) {
 
     function handleItemClick(item) {
         if (clickedItem === item) {
-            setItemStyle({
-                transform: "scale(1)",
-                transition: "transform 0.7s ease"
-            });
             setClickedItem(null);
             setRestaurantItems(restaurant);
         }
         else {
-            if (clickedItem) {
-                setItemStyle({
-                    transform: "scale(1)",
-                    transition: "transform 0.7s ease"
-                });
-            }
+            //setPositionTracker(0);
 
             setClickedItem(prevClickedItem => (prevClickedItem === item ? null : item));
-
-            setItemStyle(categoryClickStyles);
 
             setRestaurantItems(restaurant);
             setRestaurantItems(prevRestaurantItems => {
@@ -84,18 +72,18 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList }) {
     }
 
     return (
-        <section>
+        <section className="browsingSection">
             <div className="navButtonContainer">
                 <NavButton 
                     updateList={handleListUpdate} 
-                    direction={"<--"}
+                    direction={"left"}
                     itemList={itemList} 
                     isFood={isFood} 
                     positionTracker={positionTracker}  
                 />
                 <NavButton 
                     updateList={handleListUpdate} 
-                    direction={"-->"} 
+                    direction={"right"} 
                     itemList={itemList} 
                     isFood={isFood} 
                     positionTracker={positionTracker} 
@@ -122,16 +110,16 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
         const listElements = document.querySelectorAll(".itemList");
         const element = isFood ? listElements[0] : listElements[1];
 
-        const initialVisibleItems = 3;
+        const initialVisibleItems = 5;
 
-        if (direction === "<--" && positionTracker > 0) {
+        if (direction === "left" && positionTracker > 0) {
             const updatedPosition = positionTracker - 1;
             element.style.transform = `translateX(${updatedPosition * -10}em)`;
             
             updateList({ updatedPosition });
             
         }
-        else if (direction === "-->" && positionTracker < itemList.length - initialVisibleItems) {  
+        else if (direction === "right" && positionTracker < itemList.length - initialVisibleItems) {  
             const updatedPosition = positionTracker + 1;
             element.style.transform = `translateX(${updatedPosition * -10}em)`;
             
@@ -139,11 +127,20 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
         }
     }
 
-    return (
-        <button className="navButton" onClick={handleListClick}>
-            {direction}
-        </button>
-    );
+    if (direction === "left") {
+        return (
+            <button className="navButton" onClick={handleListClick}>
+                <i className="arrow left"></i>
+            </button>
+        );
+    }
+    else {
+        return (
+            <button className="navButton" onClick={handleListClick}>
+                <i className="arrow right"></i>
+            </button>
+        );
+    }
 }
 
 function SectionItem({ item, isFood, onClick, isClicked }) {
