@@ -1,4 +1,13 @@
+body {
+    background-image: url(tempFood.jpg);
+    background-size: cover;
+}
 .browsingMain {
+    margin: 0 auto;
+    width: 65em;
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +17,7 @@
     padding-bottom: 1em;
     overflow: hidden;
     width: 58em;
-    max-width: 80%;
+    max-width: 100%;
 }
 .itemList {
     padding: 0;
@@ -35,14 +44,20 @@ img {
 h4{
     text-align: center;
 }
-.navButtonContainer {
+.sectionHeaderContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 57%
+}
+.sectionHeading {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navButtonContainer {
     margin-top: 1em;
 }
 .navButton {
     display: inline;
-    flex-direction: column;
     width: 4em;
     background: transparent;
     box-shadow: none;
@@ -60,6 +75,7 @@ h4{
 .arrow:hover {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg) scale(1.9);
+    cursor: pointer;
 }
 .right {
     transform: rotate(-45deg);
