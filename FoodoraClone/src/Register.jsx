@@ -1,34 +1,96 @@
-import React, { useState } from "react"
-import './App.css'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Register = (props) => {
+const Register = () => {
     
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    const [name, setName] = useState('');
+    const navigate = useNavigate();
+
+    const [input, setInput] = useState({
+        name : "",
+        email : "",
+        password : ""
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name);
+        let otherUsers = localStorage.getItem("user");
+        otherUsers = otherUsers ? JSON.parse(otherUsers) : [];
+
+        otherUsers.push(input);
+
+        localStorage.setItem("user", JSON.stringify(otherUsers));
+        navigate("/login");
     }
 
     return (
-        <div className="form-container">
-            <h2 className="header">Hungrig? registrera dig här</h2>
-            <form className="register-form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Hela namnet</label>
-                <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full name" />
+        <div>
+            <header>
+                <a href="./register" className="header">FEEDMEMORE</a>
+            </header>
+            <form className="form-container" onSubmit={handleSubmit}>
+                <div className="input-container">
+                    <h2>Hungrig? registrera dig här.</h2>
+                    <div className="input-form">
+                        <label htmlFor="name">Hela namnet</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            onChange={(e) => 
+                                setInput({...input,
+                                [e.target.name]: e.target.value,
+                            })
+                        } 
+                            placeholder="namn..."
+                            value={input.name} 
+                            className="name-input" />
+                    </div>
+                    
+                    <div className="input-form">
+                        <label htmlFor="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            onChange={(e) => 
+                                setInput({...input,
+                                [e.target.name]: e.target.value,
+                            })
+                        } 
+                            placeholder="exempel@gmail.com"
+                            value={input.email} 
+                            className="email-input" />
+                    </div>
+                    
+                    <div className="input-form">
+                        <label htmlFor="password">Lösenord</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            onChange={(e) => 
+                                setInput({...input,
+                                [e.target.name]: e.target.value,
+                            })
+                        } 
+                            placeholder="*********"
+                            value={input.password} 
+                            className="password-input" />
+                    </div>
 
-                <label htmlfor="email">Email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@gmail.com" id="email" name="email" />
+                    <div className="button">
+                        <button type="submit" className="register-button">Registrera dig här</button>
+                    </div>
 
-                <label htmlfor="password">Lösenord</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="**********" id="password" name="password" />
-
-                <button type="submit">Logga in</button>
-                <button type="submit">Fortsätt utan att logga in.</button>
+                    <p className="p-text">
+                        Har du redan ett konto?
+                        <a href="./login" className="login-push">
+                            <u> Logga in här</u>
+                        </a>
+                    </p>
+                </div>
             </form>
-            <button className="linkbtn" onClick={() => props.onFormSwitch('login')}>Har du redan ett konto? Logga in här.</button>
         </div>
     )
 }
+export default Register;

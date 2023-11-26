@@ -1,29 +1,81 @@
-import React, { useState } from "react";
-import './App.css'
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Login = (props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    
-    const handleSubmit = (e) => {
+const Login = () => {
+    const navigate = useNavigate();
+
+    const [input, setInput] = useState({
+        email : "",
+        password : ""
+    })
+
+    const handleLogin = (e) => {
         e.preventDefault();
-        console.log(email);
+        const loggedUsers = JSON.parse(localStorage.getItem("user")) || [];
+        const findUser = loggedUsers.find(user => input.email === user.email && input.password === user.password);
+        if (findUser){
+            localStorage.setItem("loggedInUser", JSON.stringify(findUser));
+             navigate("/");
+        }
+        else {
+            alert("Fel email eller lösenord angett")
+        }   
     }
-    
+
     return (
-        <div className="form-container">
-            <h2 className="header">Välkommen!</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
-                <label htmlfor="email">Email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@gmail.com" id="email" name="email" />
+        <div>
+            <header>
+                <a href="./register" className="header">FEEDMEMORE</a>
+            </header>
+            <form className="form-container" onSubmit={handleLogin}>
+                <div className="input-container">
+                <h2>Välkomen!</h2>          
+                    <div className="input-form">
+                        <label htmlFor="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            onChange={(e) => 
+                                setInput({...input,
+                                [e.target.name]: e.target.value,
+                            })
+                        } 
+                            placeholder="exempel@gmail.com"
+                            value={input.email} 
+                            className="email-input" />
+                    </div>
+                    
+                    <div className="input-form">
+                        <label htmlFor="password">Lösenord</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            onChange={(e) => 
+                                setInput({...input,
+                                [e.target.name]: e.target.value,
+                            })
+                        } 
+                            placeholder="*********"
+                            value={input.password} 
+                            className="password-input" />
+                    </div>
 
-                <label htmlfor="password">Lösenord</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="**********" id="password" name="password" />
+                    <div className="button">
+                        <button type="submit" className="register-button">Logga in</button>
+                    </div>
 
-                <button type="submit">Logga in</button>
+                    <p className="p-text">
+                        Har du inget konto?
+                        <a href="./register" className="login-push">
+                            <u> Registrera dig här</u>
+                        </a>
+                    </p>
+                </div>
             </form>
-            <button className="linkbtn" onClick={() => props.onFormSwitch('register')}>Har du inget konto? Registrera dig här.</button>
         </div>
-        
     )
 }
+export default Login;
