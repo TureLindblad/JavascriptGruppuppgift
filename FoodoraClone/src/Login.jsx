@@ -16,7 +16,7 @@ const Login = () => {
         const findUser = loggedUsers.find(user => input.email === user.email && input.password === user.password);
         if (findUser){
             localStorage.setItem("loggedInUser", JSON.stringify(findUser));
-             navigate("/");
+             navigate("/home");
         }
         else {
             alert("Fel email eller lösenord angett")
@@ -26,7 +26,7 @@ const Login = () => {
     return (
         <div>
             <header>
-                <a href="./register" className="header">FEEDMEMORE</a>
+                <a href="./" className="header">FEEDMEMORE</a>
             </header>
             <form className="form-container" onSubmit={handleLogin}>
                 <div className="input-container">
@@ -64,12 +64,12 @@ const Login = () => {
                     </div>
 
                     <div className="button">
-                        <button type="submit" className="register-button">Logga in</button>
+                        <button type="submit" className="login-button">Logga in</button>
                     </div>
 
                     <p className="p-text">
                         Har du inget konto?
-                        <a href="./register" className="login-push">
+                        <a href="./" className="login-push">
                             <u> Registrera dig här</u>
                         </a>
                     </p>
