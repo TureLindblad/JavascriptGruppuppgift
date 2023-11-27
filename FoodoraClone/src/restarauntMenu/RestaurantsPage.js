@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import restaurants from './Restaurants';
-
+import { useNavigate } from 'react-router-dom';
 const RestaurantsPage = () => {
+  const navigate = useNavigate();
+  function onblclick() {
+    navigate(`/restaurant/${2}`)
+  }
   return (
     <div>
       <h1>Restaurants</h1>
       {restaurants.map((restaurant) => (
         <div key={restaurant.id}>
           <h2>
+            <button onClick={onblclick}>HEJ
+            </button>
             <Link to={`/restaurant/${restaurant.id}`}>{restaurant.namn}</Link>
           </h2>
         </div>
