@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './Checkout.css';
 
-
-
-
 const Checkout = () => {
   // State-hooks för att hantera kundkorg, användaruppgifter, leveranssätt och saldo
   const [cart, setCart] = useState([]);
@@ -82,51 +79,53 @@ const Checkout = () => {
   };
 
   return (
-    <div>
-      <h2>Kundkorg</h2>
-      <ul>
-        {cart.map((product, index) => (
-          <li key={index}>
-            {product.name} - Pris: {product.price} kr - Antal: {product.quantity}
-            <button onClick={() => increaseQuantity(index)}>+</button>
-            <button onClick={() => decreaseQuantity(index)}>-</button>
-            <button onClick={() => removeFromCart(index)}>Ta bort</button>
-          </li>
-        ))}
-      </ul>
+    <div className="container">
+      <div className="background-image"></div>
+      <div className="kort">
+        <h2>Användaruppgifter</h2>
+        <form>
+          <label>
+            Namn:
+            <input type="text" name="name" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+          </label>
+          <br />
+          <label>
+            E-post:
+            <input type="email" name="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+          </label>
+          <br />
+          <label>
+            Adress:
+            <input type="text" name="address" value={userData.address} onChange={(e) => setUserData({ ...userData, address: e.target.value })} />
+          </label>
+        </form>
 
-      <h2>Användaruppgifter</h2>
-      <form>
+        <h2>Leveranssätt:</h2>
         <label>
-          Namn:
-          <input type="text" name="name" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+          <select value={deliveryMethod} onChange={(e) => setDeliveryMethod(e.target.value)}>
+            <option value="standard">Standard leverans</option>
+            <option value="express">Express leverans</option>
+            <option value="hämta">Hämta i butik</option>
+          </select>
         </label>
-        <br />
-        <label>
-          E-post:
-          <input type="email" name="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
-        </label>
-        <br />
-        <label>
-          Adress:
-          <input type="text" name="address" value={userData.address} onChange={(e) => setUserData({ ...userData, address: e.target.value })} />
-        </label>
-      </form>
 
-      <h2></h2>
-      <label>
-        Leveranssätt:
-        <select value={deliveryMethod} onChange={(e) => setDeliveryMethod(e.target.value)}>
-          <option value="standard">Standard leverans</option>
-          <option value="express">Express leverans</option>
-          <option value="hämta">Hämta i butik</option>
-        </select>
-      </label>
+        <h2>Kundkorg</h2>
+        <ul>
+          {cart.map((product, index) => (
+            <li key={index}>
+              {product.name} - Pris: {product.price} kr - Antal: {product.quantity}
+              <button onClick={() => increaseQuantity(index)}>+</button>
+              <button onClick={() => decreaseQuantity(index)}>-</button>
+              <button onClick={() => removeFromCart(index)}>Ta bort</button>
+            </li>
+          ))}
+        </ul>
 
-      <h2>Saldo: {balance} kr</h2>
-      <h2>Totalt att betala: {calculateTotal()} kr</h2>
+        <h2>Saldo: {balance} kr</h2>
+        <h2>Totalt att betala: {calculateTotal()} kr</h2>
 
-      <button onClick={handleCheckout}>Gå till kassan</button>
+        <button onClick={handleCheckout}>Betala</button>
+      </div>
     </div>
   );
 };
