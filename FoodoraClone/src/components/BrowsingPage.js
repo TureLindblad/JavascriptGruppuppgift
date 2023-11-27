@@ -174,7 +174,7 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
         } else {
             setItemStyle({
                 transform: "scale(1)",
-                transition: "transform 0.7s ease"
+                   transition: "transform 0.7s ease"
             });
         }
     }, [isClicked]);

@@ -16,7 +16,6 @@ const SingleRestaurant = () => {
 return (
     <div>
       <h1>{restaurant.namn}</h1>
-      <p></p>
       <Restaurant restaurant={restaurant}/>
     </div>
   );

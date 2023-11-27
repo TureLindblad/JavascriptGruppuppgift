@@ -19,7 +19,7 @@ menu: [{namn: 'Korv med bröd', pris: genereraRandomPris()},
 },
 { id: 2, namn: 'Saras Sushi', categories: ['Sushi', 'Ramen'], image: imageList[6],
 
-menu: [ {namn: 'Big Sushi', pris: genereraRandomPris()},
+menu: [ {namn: 'Big Sushi', pris: genereraRandomPris(), image: imageList[1]},
         {namn: 'Little Sushi', pris: genereraRandomPris()},
         {namn: 'Family Sushi', pris: genereraRandomPris()},
         {namn: 'Flame-out-your-ass Sushi', pris: genereraRandomPris()},
@@ -41,7 +41,7 @@ menu: [ {namn: 'Kebab med bröd', pris: genereraRandomPris()},
 ]
 },
 
-{ id: 5, namn: 'Pasta Palace',  categories: ['Pasta', 'Pizza'], 
+{ id: 5, namn: 'Pasta Palace',  categories: ['Pasta', 'Pizza'], image: imageList[3], 
 
 menu: [ {namn: 'Pelles pasta', pris: genereraRandomPris()},
         {namn: 'Kycklingpasta',pris: genereraRandomPris()},
@@ -50,7 +50,7 @@ menu: [ {namn: 'Pelles pasta', pris: genereraRandomPris()},
 ] 
 },
 
-{ id: 6, namn: 'Pizza Paradise',   categories: ['Pizza', 'Pasta'], 
+{ id: 6, namn: 'Pizza Paradise',   categories: ['Pizza', 'Pasta'], image: imageList[4],
 
 menu: [ {namn: 'Pizza a la Penne',pris: genereraRandomPris()},
         {namn: 'RäkPizza', pris: genereraRandomPris()},
@@ -58,7 +58,7 @@ menu: [ {namn: 'Pizza a la Penne',pris: genereraRandomPris()},
 ] 
 },
 
-{ id: 7, namn: 'Salad Sensation',  categories: ['Sallad'], 
+{ id: 7, namn: 'Salad Sensation',  categories: ['Sallad'], image: imageList[5],
 
 menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
         {namn:'CeasarsCypher Sallad',pris: genereraRandomPris()},
@@ -67,7 +67,7 @@ menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
 ] 
 },
 
-{ id: 8, namn: 'Thai Tasty', categories: ['Thai', 'Sushi', 'Sallad'], 
+{ id: 8, namn: 'Thai Tasty', categories: ['Thai', 'Sushi', 'Sallad'], image: imageList[7],
 
 menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Ambulans på köpet', pris: genereraRandomPris()},

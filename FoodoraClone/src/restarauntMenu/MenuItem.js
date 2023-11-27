@@ -4,7 +4,7 @@ const MenuItem = ({ namn, pris, increaseItems, decreaseItems, count }) => {
   return (
     <li>
       <div className='menuItem'>
-        <span>{namn}</span> 
+        <span>{namn}</span>
         <span>{pris} SEK</span>
       </div>
       <div>

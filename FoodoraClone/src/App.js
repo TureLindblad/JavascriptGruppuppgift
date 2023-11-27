@@ -9,14 +9,13 @@ function App() {
   
   return (
     <div className="App">
-  <Router>
+  <Router>  
       <Routes>
         <Route path="/" element={<RestaurantsPage />} />
         <Route path="/restaurant/:id" element={<SingleRestaurant />} />
       </Routes>
     </Router>
-  
-      <BrowsingPage />
+
     </div>
     
   );

@@ -33,6 +33,7 @@ const Restaurant = ({ restaurant, selectedItems}) => {
       <h3>Meny</h3>
       <ul>
         {restaurant.menu.map((item, index) => (
+            
               <div key={index}>
               <MenuItem
                 namn={item.namn}
