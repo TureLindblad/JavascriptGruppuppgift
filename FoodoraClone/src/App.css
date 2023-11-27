@@ -1,0 +1,95 @@
+body {
+    background-image: url(tempFood.jpg);
+    background-size: cover;
+}
+.browsingMain {
+    margin: 0 auto;
+    width: 65em;
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.browsingSection {
+    margin: 1em;
+    padding-bottom: 1em;
+    overflow: hidden;
+    width: 58em;
+    max-width: 100%;
+}
+.itemList {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    transition: transform 0.5s ease;
+}
+.item {
+    margin: 1em;
+    padding-top: 0.5em;
+    width: 10em;
+}
+.itemButton {
+    background-color: rgba(0, 0, 0, 0);
+    width: 10em;
+    height: 10em;
+    border-style: none;
+    cursor: pointer;
+}
+img {
+    border-radius: 1em;
+    width: 100%;
+}
+h4{
+    text-align: center;
+}
+.sectionHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 57%
+}
+.sectionHeading {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navButtonContainer {
+    margin-top: 1em;
+}
+.navButton {
+    display: inline;
+    width: 4em;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    transition: transform 0.2s;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    width: 1em;
+    height: 1em;
+}
+.arrow:hover {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg) scale(1.9);
+    cursor: pointer;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.right:hover {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg) scale(1.9);
+}
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.left:hover {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg) scale(1.9);
+}
