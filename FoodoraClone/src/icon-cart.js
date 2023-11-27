@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './icon-cart.css';
 
-const Checkout = () => {
+const Iconcart = () => {
   const [cart, setCart] = useState([]);
   const [userData, setUserData] = useState({
     name: '',
@@ -79,7 +79,7 @@ const Checkout = () => {
         🛒
       </div>
       <div className={`cart-container ${isCartVisible ? 'visible' : ''}`}>
-        <h2>Shopping Cart</h2>
+        <h2>Kundkorg</h2>
         <ul>
           {cart.map((product, index) => (
             <li key={index}>
@@ -90,38 +90,22 @@ const Checkout = () => {
             </li>
           ))}
         </ul>
-        <h2>User Information</h2>
-        <form>
-          <label>
-            Name:
-            <input type="text" name="name" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input type="email" name="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
-          </label>
-          <br />
-          <label>
-            Address:
-            <input type="text" name="address" value={userData.address} onChange={(e) => setUserData({ ...userData, address: e.target.value })} />
-          </label>
-        </form>
-        <h2>Delivery Information</h2>
+     
+        <h2>Leveranssätt</h2>
         <label>
-          Delivery method:
+          Leveranssätt:
           <select value={deliveryMethod} onChange={(e) => setDeliveryMethod(e.target.value)}>
             <option value="standard">Standard delivery</option>
             <option value="express">Express delivery</option>
             <option value="hämta">Pick up in store</option>
           </select>
         </label>
-        <h2>Balance: {balance} kr</h2>
-        <h2>Total to pay: {calculateTotal()} kr</h2>
-        <button onClick={handleCheckout}>Pay</button>
+        <h2>Saldo: {balance} kr</h2>
+        <h2>Att Betala: {calculateTotal()} kr</h2>
+        <button onClick={handleCheckout}>Till Kassan</button>
       </div>
     </div>
   );
 };
 
-export default Checkout;
+export default Iconcart;

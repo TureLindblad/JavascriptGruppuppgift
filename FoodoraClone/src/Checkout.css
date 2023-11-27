@@ -46,6 +46,7 @@ body {
   }
   
   .kort {
+    width: 450px;
     size: 700px;
    padding: 70px;
    border: 1px solid black;
