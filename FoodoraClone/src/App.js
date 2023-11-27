@@ -5,20 +5,19 @@ import SingleRestaurant from './restarauntMenu/SingleRestaurant';
 import './App.css';
 import Navbar from "./navbar.js"
 import BrowsingPage from './components/BrowsingPage';
-
+ 
 function App() {
   
   return (
     <div className="App">
-  <Router>
-      <Routes>
-        <Route path="/" element={<RestaurantsPage />} />
-        <Route path="/restaurant/:id" element={<SingleRestaurant />} />
-      </Routes>
-    </Router>
-  
-      <BrowsingPage />
-      <Navbar />
+      
+      <Router>
+          <Routes>
+            <Route path="/" element={<RestaurantsPage />} />
+            <Route path="/restaurantMenu/:id" element={<SingleRestaurant />} />
+          </Routes>
+        
+      </Router>
     </div>
     
   );

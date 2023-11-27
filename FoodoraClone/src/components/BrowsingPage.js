@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import restaurant from "../restarauntMenu/restaurant.js";
-
+import Restaurants from "../restarauntMenu/Restaurants.js";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SingleRestaurant from "../restarauntMenu/SingleRestaurant.js";
 ///TODO restauranger visas inte korrekt om man har klickat åt höger och sedan filtrerar ner listan
 
 //laddar in alla bilder i en mapp som används av kategoriobjekten
@@ -20,7 +22,7 @@ const foodItems = [
 
 export default function BrowsingPage() {
     //listan med restauranger visas dynamiskt och är en state
-    const [restaurantItems, setRestaurantItems] = useState(restaurant);
+    const [restaurantItems, setRestaurantItems] = useState(Restaurants);
 
     return (
         <main className="browsingMain">
@@ -57,7 +59,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
         setClickedItem(prevClickedItem => (prevClickedItem === item ? null : item));
 
         //resettar först till ursprungliga listan av restauranger
-        setRestaurantItems(restaurant);
+        setRestaurantItems(Restaurants);
         
         //sedan om ett item klickades som var "nytt" så filtreras listan ner till de restauranger som passar in på itemets kategori
         if(clickedItem !== item) {
@@ -157,6 +159,7 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
 
 function SectionItem({ item, isFood, onClick, isClicked }) {
     const [itemStyle, setItemStyle] = useState({});
+    const navigate = useNavigate();
 
     //använder useEffect för att uppdatera ett items css beroende på om den är klickad
     //är dependent på isClicked från parent componenent och uppdateras när variabeln ändras
@@ -184,17 +187,19 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
         if (isFood) {
             if (isClicked) {
                 onClick(null);
-            } else {
+            }
+            else {
                 onClick(item);
             }
         }
         //om item är restaurang så ges länk till sida för restaurang
         else {
-            alert("link to restaurant goes here");
+            navigate(`/Restaurants/${item.id}`);
         }
     }
 
     //varje item är en knapp som tar in relevanta props från respektive objekt
+
     return (
         <li className="item" style={itemStyle}>
             <button className="itemButton" onClick={handleClick}>
