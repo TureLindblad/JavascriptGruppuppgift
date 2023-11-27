@@ -25,6 +25,10 @@ const Register = () => {
         e.preventDefault();
         navigate("/home");
     }
+    const handleClickes = (e) => {
+        e.preventDefault();
+        navigate("/login")
+    }
 
     return (
         <div>
@@ -88,10 +92,8 @@ const Register = () => {
                     </div>
 
                     <p className="p-text">
-                        Har du redan ett konto?
-                        <a href="./login" className="login-push">
-                            <u> Logga in här</u>
-                        </a>
+                         Har du redan ett konto?
+                            <u className="link-click" onClick={handleClickes}> Logga in här</u>
                     </p>
                 </div>
             </form>

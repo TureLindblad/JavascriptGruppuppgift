@@ -21,6 +21,11 @@ const Login = () => {
         else {
             alert("Fel email eller lösenord angett")
         }   
+    
+    }
+    const handleClicked = (e) => {
+        e.preventDefault();
+        navigate("/")
     }
 
     return (
@@ -64,14 +69,12 @@ const Login = () => {
                     </div>
 
                     <div className="button">
-                        <button type="submit" className="login-button">Logga in</button>
+                        <button type="submit" className="register-button">Logga in</button>
                     </div>
 
                     <p className="p-text">
                         Har du inget konto?
-                        <a href="./" className="login-push">
-                            <u> Registrera dig här</u>
-                        </a>
+                        <u className="link-click" onClick={handleClicked}>Registrera dig här</u>   
                     </p>
                 </div>
             </form>
