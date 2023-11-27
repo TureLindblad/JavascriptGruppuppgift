@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./navbar.js";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Login = () => {
         const findUser = loggedUsers.find(user => input.email === user.email && input.password === user.password);
         if (findUser){
             localStorage.setItem("loggedInUser", JSON.stringify(findUser));
-             navigate("/home");
+             navigate("/BrowsingPage");
         }
         else {
             alert("Fel email eller lösenord angett")
@@ -30,8 +31,8 @@ const Login = () => {
 
     return (
         <div>
-            <header>
-                <a href="./" className="header">FEEDMEMORE</a>
+            <header className="startsida-header">
+                <a href="./register" className="header">FEEDMEMORE</a>
             </header>
             <form className="form-container" onSubmit={handleLogin}>
                 <div className="input-container">
@@ -69,7 +70,7 @@ const Login = () => {
                     </div>
 
                     <div className="button">
-                        <button type="submit" className="register-button">Logga in</button>
+                        <button type="submit" className="startsida-btn">Logga in</button>
                     </div>
 
                     <p className="p-text">

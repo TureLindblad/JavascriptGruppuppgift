@@ -86,4 +86,4 @@ menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Kyckllingspett med Nitroglycerinsås', pris: genereraRandomPris()},]},
 ];
 
-export { restaurants, foodItems};
+export default restaurants;

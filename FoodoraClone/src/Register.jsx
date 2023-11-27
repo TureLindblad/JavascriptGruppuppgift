@@ -23,7 +23,7 @@ const Register = () => {
     }
     const handleClick = (e) => {
         e.preventDefault();
-        navigate("/home");
+        navigate("/BrowsingPage");
     }
     const handleClickes = (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ const Register = () => {
 
     return (
         <div>
-            <header>
+            <header className="startsida-header">
                 <a href="./register" className="header">FEEDMEMORE</a>
             </header>
             <form className="form-container" onSubmit={handleSubmit}>
@@ -87,8 +87,8 @@ const Register = () => {
                     </div>
 
                     <div className="button">
-                        <button type="submit" className="register-button">Registrera dig här</button>
-                        <button onClick={handleClick}>Fortsätt utan att logga in</button>
+                        <button type="submit" className="startsida-btn">Registrera dig här</button>
+                        <button className="startsida-btn"onClick={handleClick}>Fortsätt utan att logga in</button>
                     </div>
 
                     <p className="p-text">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import restaurant from "../restarauntMenu/restaurant.js";
+import restaurant from "../restarauntMenu/Restaurants.js";
+import Navbar from "../navbar.js";
 
 ///TODO restauranger visas inte korrekt om man har klickat åt höger och sedan filtrerar ner listan
 
@@ -23,22 +24,25 @@ export default function BrowsingPage() {
     const [restaurantItems, setRestaurantItems] = useState(restaurant);
 
     return (
-        <main className="browsingMain">
-            <BrowsingSection
-                isFood={true}  
-                itemList={foodItems}
-                restaurantItems={restaurantItems}
-                setRestaurantItems={setRestaurantItems}
-                sectionText={"Välj kategori"}
-            />
-            <BrowsingSection
-                isRestaurant={true}
-                itemList={restaurantItems}
-                restaurantItems={restaurantItems}
-                setRestaurantItems={setRestaurantItems}
-                sectionText={"Välj restaurang"}
-            />
-        </main>
+        <div>
+            <Navbar />
+            <main className="browsingMain">
+                <BrowsingSection
+                    isFood={true}  
+                    itemList={foodItems}
+                    restaurantItems={restaurantItems}
+                    setRestaurantItems={setRestaurantItems}
+                    sectionText={"Välj kategori"}
+                />
+                <BrowsingSection
+                    isRestaurant={true}
+                    itemList={restaurantItems}
+                    restaurantItems={restaurantItems}
+                    setRestaurantItems={setRestaurantItems}
+                    sectionText={"Välj restaurang"}
+                />
+            </main>
+        </div>
     );
 }
 
