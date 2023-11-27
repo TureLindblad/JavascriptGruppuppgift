@@ -3,7 +3,9 @@ import MenuItem from './MenuItem';
 import '../App.css';
 
 const Restaurant = ({ restaurant, selectedItems}) => {
-    
+    console.log('restaurant: ',restaurant);
+    console.log('selectedItems:', selectedItems);
+
     const [itemCounts, setItemCounts] = useState(
         restaurant.menu.reduce((acc, item) => {
             acc[item.namn] = 0;

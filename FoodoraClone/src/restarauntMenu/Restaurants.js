@@ -1,34 +1,23 @@
 import React from 'react';
 
-//const images = require.context('../restaurantImages', true);
-//const imageList = images.keys().map(image => images(image));
+const images = require.context('../restaurantImages', true);
+const imageList = images.keys().map(image => images(image));
 
 function genereraRandomPris(){
   return Math.floor(Math.random() * (150 - 50 + 1)) + 50;
 }
 
-
-const foodItems = [
-{name: 'Burgers', },
-{name: 'Kebab', },
-{name: 'Korv', },
-{name: 'Pasta', },
-{name: 'Pizza', },
-{name: 'Sallad', },
-{name: 'Sushi', },
-{name: 'Thai', },
-]
-
 const restaurants = [
-{ id: 1, namn: 'Kalles korvkiosk', categories: ['Korv', 'Hamburgare'],
+{ id: 1, namn: 'Kalles korvkiosk', categories: ['Korv', 'Hamburgare'], image: imageList[2],
 
 menu: [{namn: 'Korv med bröd', pris: genereraRandomPris()},
        {namn: 'Två korv med bröd', pris: genereraRandomPris()},
        {namn: 'Tre korv med bröd', pris: genereraRandomPris()},
        {namn: 'Bara bröd', pris: genereraRandomPris() },
 ]
+
 },
-{ id: 2, namn: 'Saras Sushi', categories: ['Sushi', 'Ramen'], 
+{ id: 2, namn: 'Saras Sushi', categories: ['Sushi', 'Ramen'], image: imageList[6],
 
 menu: [ {namn: 'Big Sushi', pris: genereraRandomPris()},
         {namn: 'Little Sushi', pris: genereraRandomPris()},
@@ -36,14 +25,14 @@ menu: [ {namn: 'Big Sushi', pris: genereraRandomPris()},
         {namn: 'Flame-out-your-ass Sushi', pris: genereraRandomPris()},
 ]
 },
-{ id: 3, namn: 'Bertils Burgare',  categories: ['Hamburgare', 'Korv'], 
+{ id: 3, namn: 'Bertils Burgare',  categories: ['Hamburgare', 'Korv'], image: imageList[0],
 
 menu:  [{namn: 'FemOstburgare',pris: genereraRandomPris()},
         {namn: 'Trippel Viltburgare', pris: genereraRandomPris()},
         {namn: 'Burgare utan kött', pris: genereraRandomPris()},
 ]
 },
-{ id: 4, namn: 'Kebab King', categories: ['Kebab', 'Sallad'], 
+{ id: 4, namn: 'Kebab King', categories: ['Kebab', 'Sallad'], image: imageList[1],
 
 menu: [ {namn: 'Kebab med bröd', pris: genereraRandomPris()},
         {namn: 'Kebabrulle', pris: genereraRandomPris()},
@@ -86,4 +75,4 @@ menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Kyckllingspett med Nitroglycerinsås', pris: genereraRandomPris()},]},
 ];
 
-export { restaurants, foodItems};
+export default restaurants;

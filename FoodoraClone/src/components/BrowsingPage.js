@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import restaurant from "../restarauntMenu/restaurant.js";
+import Restaurants from "../restarauntMenu/Restaurants.js";
 
 ///TODO restauranger visas inte korrekt om man har klickat åt höger och sedan filtrerar ner listan
 
@@ -20,7 +20,7 @@ const foodItems = [
 
 export default function BrowsingPage() {
     //listan med restauranger visas dynamiskt och är en state
-    const [restaurantItems, setRestaurantItems] = useState(restaurant);
+    const [restaurantItems, setRestaurantItems] = useState(Restaurants);
 
     return (
         <main className="browsingMain">
@@ -57,7 +57,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
         setClickedItem(prevClickedItem => (prevClickedItem === item ? null : item));
 
         //resettar först till ursprungliga listan av restauranger
-        setRestaurantItems(restaurant);
+        setRestaurantItems(Restaurants);
         
         //sedan om ett item klickades som var "nytt" så filtreras listan ner till de restauranger som passar in på itemets kategori
         if(clickedItem !== item) {
