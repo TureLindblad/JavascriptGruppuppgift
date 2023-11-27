@@ -9,11 +9,12 @@ import Register from "./Register";
 import Login from "./Login";
 import Navbar from "./navbar.js"
 import BrowsingPage from './components/BrowsingPage';
+import Checkout from './Checkout';
 
 function App() {
   return (
     <div className="App">
-  <Router>
+       <Router>
       <Routes>
         <Route path="/" element={<RestaurantsPage />} />
         <Route path="/restaurant/:id" element={<SingleRestaurant />} />
@@ -25,6 +26,8 @@ function App() {
   
       <BrowsingPage />
       <Navbar />
+     
+      <Checkout />
     </div>
   )
 }
