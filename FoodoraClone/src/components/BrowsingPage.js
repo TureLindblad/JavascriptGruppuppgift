@@ -10,14 +10,14 @@ const images = require.context('../media', true);
 const imageList = images.keys().map(image => images(image));
 
 const foodItems = [
-    { name: 'Hamburgare', image: imageList[0] },
-    { name: 'Korv', image: imageList[1] },
-    { name: 'Kebab', image: imageList[2] },
-    { name: 'Pasta', image: imageList[3] },
-    { name: 'Pizza', image: imageList[4] },
-    { name: 'Sallad', image: imageList[5] },
-    { name: 'Sushi', image: imageList[6] },
-    { name: 'Thai', image: imageList[7] }
+    { namn: 'Hamburgare', image: imageList[0] },
+    { namn: 'Korv', image: imageList[1] },
+    { namn: 'Kebab', image: imageList[2] },
+    { namn: 'Pasta', image: imageList[3] },
+    { namn: 'Pizza', image: imageList[4] },
+    { namn: 'Sallad', image: imageList[5] },
+    { namn: 'Sushi', image: imageList[6] },
+    { namn: 'Thai', image: imageList[7] }
 ];
 
 export default function BrowsingPage() {
@@ -68,7 +68,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
     
                 for (let i = 0; i < prevRestaurantItems.length; i++) {
                     prevRestaurantItems[i].categories.forEach(category => {
-                        if (category === item.name) {
+                        if (category === item.namn) {
                             newRestaurants.push(prevRestaurantItems[i]);
                         }
                     });
@@ -104,7 +104,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
             <ul className="itemList">
                 {itemList.map((item) => (
                     <SectionItem 
-                        key={item.name} 
+                        key={item.namn} 
                         item={item}
                         isFood={isFood} 
                         onClick={() => handleItemClick(item)}
@@ -194,7 +194,7 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
         }
         //om item är restaurang så ges länk till sida för restaurang
         else {
-            navigate(`/Restaurants/${item.id}`);
+            navigate(`/SingleRestaurant/${item.id}`);
         }
     }
 
@@ -203,8 +203,8 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
     return (
         <li className="item" style={itemStyle}>
             <button className="itemButton" onClick={handleClick}>
-                <img src={item.image} alt={item.name}></img>
-                <h4>{item.name}</h4>
+                <img src={item.image} alt={item.namn}></img>
+                <h4>{item.namn}</h4>
             </button>
         </li>
     );

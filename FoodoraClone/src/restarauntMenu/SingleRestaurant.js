@@ -4,7 +4,6 @@ import restaurants from './Restaurants';
 import Restaurant from './restaurant.js';
 
 const SingleRestaurant = () => {
-  alert();
   const { id } = useParams();
   const restaurantId = parseInt(id, 10);
   
@@ -12,7 +11,6 @@ const SingleRestaurant = () => {
   const restaurant = restaurants.find((r) => r.id === restaurantId);
 
   if (!restaurant) {
-    alert(restaurantId);
     return <div>Restaurang inte hittad</div>;
   }
 
