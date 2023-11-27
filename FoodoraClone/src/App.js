@@ -14,18 +14,18 @@ import Checkout from './Checkout';
 function App() {
   return (
     <div className="App">
-       <Router>
-      <Routes>
-        <Route path="/" element={<RestaurantsPage />} />
-        <Route path="/restaurant/:id" element={<SingleRestaurant />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Register />} />
-      </Routes>
-    </Router>
-  
-      <BrowsingPage />
-      <Navbar />
+      
+      <Router>
+        <Navbar />
+          <Routes>
+            <Route path="/" element={<BrowsingPage />} />
+            <Route path="/SingleRestaurant/:id" element={<SingleRestaurant />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Register />} />
+          </Routes>
+        
+      </Router>
      
       <Checkout />
     </div>
