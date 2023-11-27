@@ -21,6 +21,10 @@ const Register = () => {
         localStorage.setItem("user", JSON.stringify(otherUsers));
         navigate("/login");
     }
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate("/home");
+    }
 
     return (
         <div>
@@ -80,6 +84,7 @@ const Register = () => {
 
                     <div className="button">
                         <button type="submit" className="register-button">Registrera dig här</button>
+                        <button onClick={handleClick}>Fortsätt utan att logga in</button>
                     </div>
 
                     <p className="p-text">
