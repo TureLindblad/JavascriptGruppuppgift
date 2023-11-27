@@ -93,3 +93,9 @@ h4{
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg) scale(1.9);
 }
+.menuItem {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: blue;
+  }
