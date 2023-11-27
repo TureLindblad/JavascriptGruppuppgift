@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './icon-cart.css';
 
-const Iconcart = () => {
+const IconCart = () => {
   const [cart, setCart] = useState([]);
   const [userData, setUserData] = useState({
     name: '',
@@ -108,4 +108,4 @@ const Iconcart = () => {
   );
 };
 
-export default Iconcart;
+export default IconCart;

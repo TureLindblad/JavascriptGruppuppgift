@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { restaurants } from './Restaurants';
-import Restaurant from './Restaurant';
+import restaurants  from './Restaurants';
+import Restaurant from './restaurant';
 
 const SingleRestaurant = () => {
   const { id } = useParams();

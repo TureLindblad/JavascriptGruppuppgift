@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import restaurant from "../restarauntMenu/restaurant.js";
+import restaurant from "../restarauntMenu/Restaurants.js";
 
 ///TODO restauranger visas inte korrekt om man har klickat åt höger och sedan filtrerar ner listan
 

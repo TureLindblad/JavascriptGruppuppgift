@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { restaurants } from './Restaurants';
+import restaurants  from './Restaurants';
 
 const RestaurantsPage = () => {
   return (

@@ -1,10 +1,4 @@
-.container {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  z-index: 2; /* Sätt en högre z-index för att placera ovanpå kundvagnsinnehållet */
-}
+
 
 .cart-container {
   position: fixed;

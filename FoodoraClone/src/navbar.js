@@ -1,8 +1,11 @@
+import IconCart from './icon-cart';
+
 export default function Navbar() {
     return (
         <header>
             <nav className="navbar">
                 <NavbarList />
+                <IconCart/>
             </nav>
         </header>
     );
@@ -14,6 +17,7 @@ function NavbarList() {
             <NavbarListItem textContent={"Mat och Restauranger"} />
             <NavbarListItem textContent={"grejer"} />
             <NavbarListItem textContent={"tre"} />
+            <IconCart/>
         </ul>
     );
 }
