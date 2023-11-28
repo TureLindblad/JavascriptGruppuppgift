@@ -7,11 +7,7 @@ body {
   padding: 10px;
 }
 .navbar-logname {
-<<<<<<< HEAD
-  padding-left: 21%;
-=======
   padding-left: 22%;
->>>>>>> df71240cfca0552515ca44cf301ff9f0cff3f591
   font-weight: bold;
   cursor: pointer;
 }
@@ -113,15 +109,6 @@ h4 {
   background-color: blue;
 }
 .navbar {
-<<<<<<< HEAD
-    display: inline;
-    position: fixed;
-    top: 0;
-    height: 60px;
-    width: 100%;
-    background-color: red;
-    z-index: 2;
-=======
   display: inline;
   position: fixed;
   top: 0;
@@ -129,7 +116,6 @@ h4 {
   background-color: red;
   z-index: 2;
   height: 60px;
->>>>>>> df71240cfca0552515ca44cf301ff9f0cff3f591
 }
 .navbarList {
   list-style: none;
