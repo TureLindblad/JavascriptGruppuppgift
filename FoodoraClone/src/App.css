@@ -7,7 +7,7 @@ body {
   padding: 10px;
 }
 .navbar-logname {
-  padding-left: 263px;
+  padding-left: 21%;
   font-weight: bold;
 }
 .browsingMain {
@@ -111,6 +111,7 @@ h4{
     display: inline;
     position: fixed;
     top: 0;
+    height: 60px;
     width: 100%;
     background-color: red;
     z-index: 2;
