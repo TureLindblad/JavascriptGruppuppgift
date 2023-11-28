@@ -29,10 +29,11 @@ const Restaurant = ({ restaurant, selectedItems}) => {
     };
 
   return (
-    
+
     <div>
-      <h3>Meny</h3>
-      <ul>
+
+      <main className='browsingMain'>
+      <h1 className = "namnet">Meny</h1>
         {restaurant.menu.map((item, index) => (
             
               <div key={index}>
@@ -46,7 +47,7 @@ const Restaurant = ({ restaurant, selectedItems}) => {
               />
             </div>
           ))}
-          </ul>
+          </main>
           </div>
   );
 };

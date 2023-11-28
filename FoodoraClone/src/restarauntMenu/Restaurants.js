@@ -8,17 +8,17 @@ function genereraRandomPris() {
 const restaurants = [
 { id: 1, namn: 'Kalles korvkiosk', categories: ['Korv', 'Hamburgare'], image: imageList[2],
 
-menu: [{namn: 'Korv med bröd', pris: genereraRandomPris()},
-       {namn: 'Två korv med bröd', pris: genereraRandomPris()},
-       {namn: 'Tre korv med bröd', pris: genereraRandomPris()},
-       {namn: 'Bara bröd', pris: genereraRandomPris() },
+menu: [{namn: 'Korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
+       {namn: 'Två korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
+       {namn: 'Tre korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
+       {namn: 'Bara bröd', pris: genereraRandomPris(), bild: imageList[1]},
 ]
 
 },
 { id: 2, namn: 'Saras Sushi', categories: ['Sushi', 'Ramen'], image: imageList[6],
 
 menu: [ {namn: 'Big Sushi', pris: genereraRandomPris(), bild: imageList[1]},
-        {namn: 'Little Sushi', pris: genereraRandomPris()},
+        {namn: 'Little Sushi', pris: genereraRandomPris(),},
         {namn: 'Family Sushi', pris: genereraRandomPris()},
         {namn: 'Flame-out-your-ass Sushi', pris: genereraRandomPris()},
 ]
@@ -89,4 +89,4 @@ menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Kyckllingspett med Holy Fuck Sauce', pris: genereraRandomPris()},]},
 ];
 
-export default Restaurants;
+export default restaurants;
