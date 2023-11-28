@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Iconcart from "./icon-cart";
@@ -32,4 +31,6 @@ const Navbar = () => {
     </header>
   );
 }
+
+export default Navbar;
 
