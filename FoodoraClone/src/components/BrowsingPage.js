@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Restaurants from "../restarauntMenu/Restaurants.js";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SingleRestaurant from "../restarauntMenu/SingleRestaurant.js";
 import restaurant from "../restarauntMenu/Restaurants.js";
 import Navbar from "../navbar.js";
 
@@ -9,19 +13,19 @@ const images = require.context('../media', true);
 const imageList = images.keys().map(image => images(image));
 
 const foodItems = [
-    { name: 'Hamburgare', image: imageList[0] },
-    { name: 'Korv', image: imageList[1] },
-    { name: 'Kebab', image: imageList[2] },
-    { name: 'Pasta', image: imageList[3] },
-    { name: 'Pizza', image: imageList[4] },
-    { name: 'Sallad', image: imageList[5] },
-    { name: 'Sushi', image: imageList[6] },
-    { name: 'Thai', image: imageList[7] }
+    { namn: 'Hamburgare', image: imageList[0] },
+    { namn: 'Korv', image: imageList[1] },
+    { namn: 'Kebab', image: imageList[2] },
+    { namn: 'Pasta', image: imageList[3] },
+    { namn: 'Pizza', image: imageList[4] },
+    { namn: 'Sallad', image: imageList[5] },
+    { namn: 'Sushi', image: imageList[6] },
+    { namn: 'Thai', image: imageList[7] }
 ];
 
 export default function BrowsingPage() {
     //listan med restauranger visas dynamiskt och är en state
-    const [restaurantItems, setRestaurantItems] = useState(restaurant);
+    const [restaurantItems, setRestaurantItems] = useState(Restaurants);
 
     return (
         <div>
@@ -61,7 +65,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
         setClickedItem(prevClickedItem => (prevClickedItem === item ? null : item));
 
         //resettar först till ursprungliga listan av restauranger
-        setRestaurantItems(restaurant);
+        setRestaurantItems(Restaurants);
         
         //sedan om ett item klickades som var "nytt" så filtreras listan ner till de restauranger som passar in på itemets kategori
         if(clickedItem !== item) {
@@ -70,7 +74,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
     
                 for (let i = 0; i < prevRestaurantItems.length; i++) {
                     prevRestaurantItems[i].categories.forEach(category => {
-                        if (category === item.name) {
+                        if (category === item.namn) {
                             newRestaurants.push(prevRestaurantItems[i]);
                         }
                     });
@@ -106,7 +110,7 @@ function BrowsingSection({ isFood, setRestaurantItems, itemList, sectionText }) 
             <ul className="itemList">
                 {itemList.map((item) => (
                     <SectionItem 
-                        key={item.name} 
+                        key={item.namn} 
                         item={item}
                         isFood={isFood} 
                         onClick={() => handleItemClick(item)}
@@ -161,6 +165,7 @@ function NavButton({ updateList, direction, itemList, isFood, positionTracker })
 
 function SectionItem({ item, isFood, onClick, isClicked }) {
     const [itemStyle, setItemStyle] = useState({});
+    const navigate = useNavigate();
 
     //använder useEffect för att uppdatera ett items css beroende på om den är klickad
     //är dependent på isClicked från parent componenent och uppdateras när variabeln ändras
@@ -188,22 +193,24 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
         if (isFood) {
             if (isClicked) {
                 onClick(null);
-            } else {
+            }
+            else {
                 onClick(item);
             }
         }
         //om item är restaurang så ges länk till sida för restaurang
         else {
-            alert("link to restaurant goes here");
+            navigate(`/SingleRestaurant/${item.id}`);
         }
     }
 
     //varje item är en knapp som tar in relevanta props från respektive objekt
+
     return (
         <li className="item" style={itemStyle}>
             <button className="itemButton" onClick={handleClick}>
-                <img src={item.image} alt={item.name}></img>
-                <h4>{item.name}</h4>
+                <img src={item.image} alt={item.namn}></img>
+                <h4>{item.namn}</h4>
             </button>
         </li>
     );
