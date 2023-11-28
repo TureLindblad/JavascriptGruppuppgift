@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./navbar.js";
 
 const Login = () => {
+    // använder useNavigate för att navigera mig mellan de olika sidorna
     const navigate = useNavigate();
 
+    // har useState för att hålla användarinputs
     const [input, setInput] = useState({
         email : "",
         password : ""
@@ -13,8 +14,14 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        
+        //här hämtas sparade användare från localstorage och om det inte finns några används en tom array
         const loggedUsers = JSON.parse(localStorage.getItem("user")) || [];
+
+        // hittar användaren baserat på deras email och lösenord
         const findUser = loggedUsers.find(user => input.email === user.email && input.password === user.password);
+
+        // använder en if-sats så om användaren hittas i localstorages så loggas man in och navigeras till Browsingpage
         if (findUser){
             localStorage.setItem("loggedInUser", JSON.stringify(findUser));
              navigate("/BrowsingPage");
@@ -24,6 +31,7 @@ const Login = () => {
         }   
     
     }
+    // funktionen som navigerar dig till startsidan vilket i vårt fall är register
     const handleClicked = (e) => {
         e.preventDefault();
         navigate("/")
@@ -32,7 +40,7 @@ const Login = () => {
     return (
         <div>
             <header className="startsida-header">
-                <a href="./register" className="header">FEEDMEMORE</a>
+                <a href="./" className="header">FEEDMEMORE</a>
             </header>
             <form className="form-container" onSubmit={handleLogin}>
                 <div className="input-container">
