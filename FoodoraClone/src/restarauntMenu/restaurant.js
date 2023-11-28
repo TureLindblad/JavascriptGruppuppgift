@@ -29,6 +29,7 @@ const Restaurant = ({ restaurant, selectedItems}) => {
     };
 
   return (
+    
     <div>
       <h3>Meny</h3>
       <ul>
@@ -38,6 +39,7 @@ const Restaurant = ({ restaurant, selectedItems}) => {
               <MenuItem
                 namn={item.namn}
                 pris={item.pris}
+                image={item.bild}
                 increaseItems={() => increaseItems(item.namn)}
                 decreaseItems={() => decreaseItems(item.namn)}
                 count = {itemCounts[item.namn]}

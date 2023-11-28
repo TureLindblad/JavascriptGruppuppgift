@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import restaurants from './Restaurants';
 import Restaurant from './restaurant';
+import '../App.css';    
 
 const SingleRestaurant = () => {
   const { id } = useParams();
@@ -14,8 +15,8 @@ const SingleRestaurant = () => {
   }
 
 return (
-    <div>
-      <h1>{restaurant.namn}</h1>
+    <div >
+      <h1 className = "namnet">{restaurant.namn}</h1>
       <Restaurant restaurant={restaurant}/>
     </div>
   );

@@ -1,18 +1,18 @@
 import React from 'react';
 
-const MenuItem = ({ namn, pris, increaseItems, decreaseItems, count }) => {
+const MenuItem = ({ namn, pris, image, increaseItems, decreaseItems, count }) => {
   return (
-    <li>
-      <div className='menuItem'>
+
+    <ul>
+      <div>
         <span>{namn}</span>
         <span>{pris} SEK</span>
-      </div>
-      <div>
-        <button onClick={increaseItems}>+</button>
+        <button className="knappn" onClick={increaseItems}>+</button>
         {count} st
-        <button onClick={decreaseItems}>-</button>
+        <button className ="knappn" onClick={decreaseItems}>-</button>
       </div>
-    </li>
+    </ul>
+
   );
 };
 
