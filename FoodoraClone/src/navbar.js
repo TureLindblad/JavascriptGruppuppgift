@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Iconcart from "./icon-cart";
@@ -11,8 +10,8 @@ const Navbar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
     localStorage.removeItem("loggedInUser");
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <header>
@@ -31,5 +30,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-}
+};
 
+export default Navbar;
