@@ -9,6 +9,7 @@ body {
 .navbar-logname {
   padding-left: 22%;
   font-weight: bold;
+  cursor: pointer;
 }
 .browsingMain {
   margin: 0 auto;
