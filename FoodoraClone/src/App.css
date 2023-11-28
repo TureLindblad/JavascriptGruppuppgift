@@ -2,6 +2,14 @@ body {
     background-image: url(tempFood.jpg);
     background-size: cover;
 }
+.navbar-display {
+  display: flex;
+  padding: 10px;
+}
+.navbar-logname {
+  padding-left: 263px;
+  font-weight: bold;
+}
 .browsingMain {
     margin: 0 auto;
     width: 65em;
@@ -206,8 +214,6 @@ h2 {
 .link-click:hover {
   transform: translateY(-2px);
 }
-.navbar-logname {
-  text-align: center;
-  margin-top: 0;
-}
+
+
 

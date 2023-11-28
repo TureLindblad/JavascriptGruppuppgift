@@ -17,7 +17,7 @@ const Navbar = () => {
     <header className="navbar-header">
       <Iconcart />
       <nav className="navbar">
-        <div>
+        <div className="navbar-display">
           {loggedInUser ? (
             <p>Välkommen {loggedInUser.name}</p>
           ) : (
