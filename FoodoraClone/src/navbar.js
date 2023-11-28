@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className="navbar-header">
       <Iconcart />
       <nav className="navbar">
         <div>
@@ -26,6 +26,7 @@ const Navbar = () => {
           <button onClick={handleLogOut} type="submit" className="logout-btn">
             Logga ut
           </button>
+          <p className="navbar-logname">FEEDMEMORE</p>
         </div>
       </nav>
     </header>

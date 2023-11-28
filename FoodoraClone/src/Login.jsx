@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     // använder useNavigate för att navigera mig mellan de olika sidorna
     const navigate = useNavigate();
-
+    
     // har useState för att hålla användarinputs
     const [input, setInput] = useState({
         email : "",

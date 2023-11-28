@@ -185,6 +185,9 @@ a:hover {
   padding: 10px;
   float: top;
 }
+.navbar-header {
+  margin-top: 60px;
+}
 h2 {
   color: white;
   font-family: cursive;
@@ -202,5 +205,9 @@ h2 {
 }
 .link-click:hover {
   transform: translateY(-2px);
+}
+.navbar-logname {
+  text-align: center;
+  margin-top: 0;
 }
 
