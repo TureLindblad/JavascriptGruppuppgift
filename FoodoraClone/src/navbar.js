@@ -10,8 +10,8 @@ const Navbar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
     localStorage.removeItem("loggedInUser");
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <header>
@@ -33,4 +33,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
 
