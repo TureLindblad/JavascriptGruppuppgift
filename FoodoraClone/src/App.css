@@ -37,12 +37,14 @@ body {
     border-style: none;
     cursor: pointer;
 }
-img {
+.browsingItemImg {
     border-radius: 1em;
     width: 100%;
 }
-h4{
+.browsingItemName {
+    color: black;
     text-align: center;
+    text-wrap: nowrap;
 }
 .sectionHeaderContainer {
     display: flex;
