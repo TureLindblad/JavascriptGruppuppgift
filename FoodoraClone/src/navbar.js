@@ -13,20 +13,34 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const handleClicked = (e) => {
+    e.preventDefault();
+    navigate("/BrowsingPage");
+  };
+
   return (
     <header className="navbar-header">
       <Iconcart />
       <nav className="navbar">
         <div className="navbar-display">
           {loggedInUser ? (
+            <>
             <p>Välkommen {loggedInUser.name}</p>
+              <button onClick={handleLogOut} type="submit" className="logout-btn">
+              Logga ut
+              </button>
+            </>
           ) : (
-            <p>Ingen användare inloggad.</p>
+            <>
+              <p>Ingen användare inloggad.</p>
+              <button onClick={handleLogOut} type="submit" className="logout-btn">
+                Registrera dig
+              </button>
+            </>
           )}
-          <button onClick={handleLogOut} type="submit" className="logout-btn">
-            Logga ut
-          </button>
-          <p className="navbar-logname">FEEDMEMORE</p>
+          <p className="navbar-logname" onClick={handleClicked}>
+            FEEDMEMORE
+          </p>
         </div>
       </nav>
     </header>
