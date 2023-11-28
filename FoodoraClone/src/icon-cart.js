@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './icon-cart.css';
+import { useNavigate } from 'react-router';
 
 const IconCart = () => {
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [userData, setUserData] = useState({
     name: '',
@@ -68,6 +70,8 @@ const IconCart = () => {
       });
 
       setIsCartVisible(false);
+
+      navigate("/checkout");
     } else {
       console.log('Insufficient balance to complete the transaction.');
     }

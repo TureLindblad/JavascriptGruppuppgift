@@ -1,7 +1,7 @@
 const images = require.context('../restaurantImages', true);
 const imageList = images.keys().map(image => images(image));
 
-function genereraRandomPris(){
+function genereraRandomPris() {
   return Math.floor(Math.random() * (150 - 50 + 1)) + 50;
 }
 
@@ -34,12 +34,13 @@ menu:  [{namn: 'FemOstburgare',pris: genereraRandomPris()},
 },
 { id: 4, namn: 'Kebab King', categories: ['Kebab', 'Sallad'], image: imageList[1],
 
-menu: [ {namn: 'Kebab med bröd', pris: genereraRandomPris()},
-        {namn: 'Kebabrulle', pris: genereraRandomPris()},
-        {namn: 'Kebabtallrik', pris: genereraRandomPris()},
-        {namn: 'Kebab med kebab o en lavett', pris: genereraRandomPris()},
-]
-},
+    menu: [
+      { namn: "Kebab med bröd", pris: genereraRandomPris() },
+      { namn: "Kebabrulle", pris: genereraRandomPris() },
+      { namn: "Kebabtallrik", pris: genereraRandomPris() },
+      { namn: "Kebab med kebab o en lavett", pris: genereraRandomPris() },
+    ],
+  },
 
 { id: 5, namn: 'Pasta Palace',  categories: ['Pasta', 'Pizza'], image: imageList[3], 
 
@@ -50,15 +51,24 @@ menu: [ {namn: 'Pasta utan något', pris: genereraRandomPris()},
 ] 
 },
 
-{ id: 6, namn: 'Pizza Paradise',   categories: ['Pizza', 'Pasta'], image: imageList[4],
+  {
+    id: 6,
+    namn: "Pizza Paradise",
+    categories: ["Pizza", "Pasta"],
+    image: imageList[4],
 
-menu: [ {namn: 'Pizza a la Penne',pris: genereraRandomPris()},
-        {namn: 'RäkPizza', pris: genereraRandomPris()},
-        {namn: 'Fullkorns Pizza', pris: genereraRandomPris()},
-] 
-},
+    menu: [
+      { namn: "Pizza a la Penne", pris: genereraRandomPris() },
+      { namn: "RäkPizza", pris: genereraRandomPris() },
+      { namn: "Fullkorns Pizza", pris: genereraRandomPris() },
+    ],
+  },
 
-{ id: 7, namn: 'Salad Sensation',  categories: ['Sallad'], image: imageList[5],
+  {
+    id: 7,
+    namn: "Salad Sensation",
+    categories: ["Sallad"],
+    image: imageList[5],
 
 menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
         {namn:'CeasarsCypher Sallad',pris: genereraRandomPris()},
@@ -67,7 +77,11 @@ menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
 ] 
 },
 
-{ id: 8, namn: 'Thai Tasty', categories: ['Thai', 'Sushi', 'Sallad'], image: imageList[7],
+  {
+    id: 8,
+    namn: "Thai Tasty",
+    categories: ["Thai", "Sushi", "Sallad"],
+    image: imageList[7],
 
 menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Ambulans på köpet', pris: genereraRandomPris()},
@@ -75,4 +89,4 @@ menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
         {namn: 'Kyckllingspett med Holy Fuck Sauce', pris: genereraRandomPris()},]},
 ];
 
-export default restaurants;
+export default Restaurants;

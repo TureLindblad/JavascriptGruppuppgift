@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Restaurants from "../restarauntMenu/Restaurants.js";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import SingleRestaurant from "../restarauntMenu/SingleRestaurant.js";
+import Navbar from "../navbar.js";
+
 ///TODO restauranger visas inte korrekt om man har klickat åt höger och sedan filtrerar ner listan
 
 //laddar in alla bilder i en mapp som används av kategoriobjekten
@@ -25,22 +25,25 @@ export default function BrowsingPage() {
     const [restaurantItems, setRestaurantItems] = useState(Restaurants);
 
     return (
-        <main className="browsingMain">
-            <BrowsingSection
-                isFood={true}  
-                itemList={foodItems}
-                restaurantItems={restaurantItems}
-                setRestaurantItems={setRestaurantItems}
-                sectionText={"Välj kategori"}
-            />
-            <BrowsingSection
-                isRestaurant={true}
-                itemList={restaurantItems}
-                restaurantItems={restaurantItems}
-                setRestaurantItems={setRestaurantItems}
-                sectionText={"Välj restaurang"}
-            />
-        </main>
+        <div>
+            <Navbar />
+            <main className="browsingMain">
+                <BrowsingSection
+                    isFood={true}  
+                    itemList={foodItems}
+                    restaurantItems={restaurantItems}
+                    setRestaurantItems={setRestaurantItems}
+                    sectionText={"Välj kategori"}
+                />
+                <BrowsingSection
+                    isRestaurant={true}
+                    itemList={restaurantItems}
+                    restaurantItems={restaurantItems}
+                    setRestaurantItems={setRestaurantItems}
+                    sectionText={"Välj restaurang"}
+                />
+            </main>
+        </div>
     );
 }
 
@@ -199,12 +202,11 @@ function SectionItem({ item, isFood, onClick, isClicked }) {
     }
 
     //varje item är en knapp som tar in relevanta props från respektive objekt
-
     return (
         <li className="item" style={itemStyle}>
             <button className="itemButton" onClick={handleClick}>
-                <img src={item.image} alt={item.namn}></img>
-                <h4>{item.namn}</h4>
+                <img className="browsingItemImg" src={item.image} alt={item.namn}></img>
+                <h4 className="browsingItemName">{item.namn}</h4>
             </button>
         </li>
     );
