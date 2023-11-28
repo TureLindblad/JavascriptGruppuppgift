@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Checkout.css';
-import Restaurants from './Restaurants';
-import MenuItem from './MenuItem';
+import MenuItem from './restarauntMenu/MenuItem';
+import Restaurants from './restarauntMenu/Restaurants';
 
 const Checkout = () => {
   const [cart, setCart] = useState([]);
