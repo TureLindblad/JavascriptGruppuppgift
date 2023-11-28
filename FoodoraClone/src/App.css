@@ -1,41 +1,49 @@
 body {
-    background-image: url(tempFood.jpg);
-    background-size: cover;
+  background-image: url(tempFood.jpg);
+  background-size: cover;
+}
+.navbar-display {
+  display: flex;
+  padding: 10px;
+}
+.navbar-logname {
+  padding-left: 22%;
+  font-weight: bold;
 }
 .browsingMain {
-    margin: 0 auto;
-    width: 65em;
-    min-height: 100vh;
-    max-width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 0 auto;
+  width: 65em;
+  min-height: 100vh;
+  max-width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .browsingSection {
-    margin: 1em;
-    padding-bottom: 1em;
-    overflow: hidden;
-    width: 58em;
-    max-width: 100%;
+  margin: 1em;
+  padding-bottom: 1em;
+  overflow: hidden;
+  width: 58em;
+  max-width: 100%;
 }
 .itemList {
-    padding: 0;
-    display: flex;
-    list-style: none;
-    transition: transform 0.5s ease;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  transition: transform 0.5s ease;
 }
 .item {
-    margin: 1em;
-    padding-top: 0.5em;
-    width: 10em;
+  margin: 1em;
+  padding-top: 0.5em;
+  width: 10em;
 }
 .itemButton {
-    background-color: rgba(0, 0, 0, 0);
-    width: 10em;
-    height: 10em;
-    border-style: none;
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  width: 10em;
+  height: 10em;
+  border-style: none;
+  cursor: pointer;
 }
 .browsingItemImg {
     border-radius: 1em;
@@ -47,76 +55,78 @@ body {
     text-wrap: nowrap;
 }
 .sectionHeaderContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 57%
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 57%;
 }
 .sectionHeading {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .navButtonContainer {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 .navButton {
-    display: inline;
-    width: 4em;
-    background: transparent;
-    box-shadow: none;
-    border: 0;
-    transition: transform 0.2s;
+  display: inline;
+  width: 4em;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  transition: transform 0.2s;
 }
 .arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 5px;
-    width: 1em;
-    height: 1em;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  width: 1em;
+  height: 1em;
 }
 .arrow:hover {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg) scale(1.9);
-    cursor: pointer;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg) scale(1.9);
+  cursor: pointer;
 }
 .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 .right:hover {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg) scale(1.9);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg) scale(1.9);
 }
 .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 .left:hover {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg) scale(1.9);
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg) scale(1.9);
 }
 .menuItem {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: blue;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: blue;
 }
 .navbar {
-    display: inline;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: red;
-    z-index: 2;
+  display: inline;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: red;
+  z-index: 2;
+  height: 60px;
 }
 .navbarList {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 .navbarListItem {
-    margin-right: 1em;
-    border-style: solid;
-}body{
+  margin-right: 1em;
+  border-style: solid;
+}
+body {
   background-image: url(./image/bakgrundmat.jpeg);
   background-size: cover;
   margin: 0;
@@ -187,6 +197,9 @@ a:hover {
   padding: 10px;
   float: top;
 }
+.navbar-header {
+  margin-top: 60px;
+}
 h2 {
   color: white;
   font-family: cursive;
@@ -205,4 +218,3 @@ h2 {
 .link-click:hover {
   transform: translateY(-2px);
 }
-

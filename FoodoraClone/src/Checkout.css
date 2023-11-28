@@ -71,9 +71,9 @@ body {
   }
   
   header {
-    background-color: red;
+    /* background-color: red;
     padding: 10px;
-    float: top;
+    float: top; */
   }
   
   h2 {
