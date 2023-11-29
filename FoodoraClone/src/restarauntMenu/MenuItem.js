@@ -1,7 +1,14 @@
 import React from 'react';
 import '../App.css';
 
-const MenuItem = ({ namn, pris, menuImage, increaseItems, decreaseItems, count }) => {
+const MenuItem = ({ namn, pris, image, menuImage, decreaseItems, count }) => {
+  const addToCart = () => {
+    const item = { name: namn, price: pris }; // Update property names here
+    const existingCart = JSON.parse(localStorage.getItem('kundvagn')) || [];
+    const updatedCart = [...existingCart, item];
+    localStorage.setItem('kundvagn', JSON.stringify(updatedCart));
+  };
+
   return (
 
     <div className="menyn">
@@ -15,15 +22,14 @@ const MenuItem = ({ namn, pris, menuImage, increaseItems, decreaseItems, count }
         <div className="menyPris">
         <button className = "knappn" onClick={increaseItems}>Lägg till i kundvagn <b>+</b></button>
         {pris} SEK
-        <button className = "knappn" onClick={decreaseItems}> <b>-</b> Ta bort ur kundvagn </button>
-        </div>
-        <div>
-        <br></br>
-        {count} st i kundvagn :)
-        </div>
-        <br></br>
-        <br></br> 
+        <button className="knappn" onClick={decreaseItems}>
+          <b>-</b> Ta bort ur kundvagn
+        </button>
       </div>
+      <div>
+        {count} st i kundvagn
+      </div>
+    </div>
   );
 };
 

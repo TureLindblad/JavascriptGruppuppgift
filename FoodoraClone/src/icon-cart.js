@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './icon-cart.css';
-import { useNavigate } from 'react-router';
-
+import { useNavigate } from 'react-router-dom';
 const IconCart = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
@@ -20,28 +19,42 @@ const IconCart = () => {
     hämta: 0
   };
 
+  useEffect(() => {
+    // Load cart from local storage when component mounts
+    const storedCart = localStorage.getItem('kundvagn');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
   const addToCart = (product) => {
     setCart([...cart, { ...product, quantity: 1 }]);
+    updateLocalStorage([...cart, { ...product, quantity: 1 }]);
   };
 
   const removeFromCart = (index) => {
     const newCart = [...cart];
     newCart.splice(index, 1);
     setCart(newCart);
+    updateLocalStorage(newCart);
   };
 
   const increaseQuantity = (index) => {
     const newCart = [...cart];
     newCart[index].quantity += 1;
     setCart(newCart);
+    updateLocalStorage(newCart);
   };
 
   const decreaseQuantity = (index) => {
     const newCart = [...cart];
     if (newCart[index].quantity > 1) {
       newCart[index].quantity -= 1;
-      setCart(newCart);
+    } else {
+      newCart.splice(index, 1);
     }
+    setCart(newCart);
+    updateLocalStorage(newCart);
   };
 
   const calculateTotal = () => {
@@ -71,14 +84,21 @@ const IconCart = () => {
 
       setIsCartVisible(false);
 
-      navigate("/checkout");
+      // Clear local storage after successful checkout
+      localStorage.removeItem('kundvagn');
+
+      navigate('/checkout');
     } else {
       console.log('Insufficient balance to complete the transaction.');
     }
   };
 
+  const updateLocalStorage = (items) => {
+    localStorage.setItem('kundvagn', JSON.stringify(items));
+  };
+
   return (
-    <div className="container">
+    <div className="containerCart">
       <div className="cart-icon" onClick={() => setIsCartVisible(!isCartVisible)}>
         🛒
       </div>
@@ -94,7 +114,6 @@ const IconCart = () => {
             </li>
           ))}
         </ul>
-     
         <h2>Leveranssätt</h2>
         <label>
           Leveranssätt:
@@ -113,3 +132,4 @@ const IconCart = () => {
 };
 
 export default IconCart;
+
