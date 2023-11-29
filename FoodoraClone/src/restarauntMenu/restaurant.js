@@ -28,13 +28,12 @@ const Restaurant = ({ restaurant, addToCart }) => {
   return (
     <div>
       <main className='browsingMain'>
-      
         {restaurant.menu.map((item, index) => (
           <div key={index}>
             <MenuItem
               namn={item.namn}
               pris={item.pris}
-              menuImage={item.menuImage}
+              image={item.bild}
               increaseItems={() => increaseItems(item.namn)}
               decreaseItems={() => decreaseItems(item.namn)}
               count={itemCounts[item.namn]}
