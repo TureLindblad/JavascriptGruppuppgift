@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import restaurants from './Restaurants';
-import { useNavigate } from 'react-router-dom';
 const RestaurantsPage = () => {
     
   return (

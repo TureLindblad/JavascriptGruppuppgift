@@ -1,5 +1,7 @@
 const images = require.context('../restaurantImages', true);
 const imageList = images.keys().map(image => images(image));
+const menuImages = require.context('../menuImages', true);
+const menuImageList = menuImages.keys().map(menuImage => menuImages(menuImage));
 
 function genereraRandomPris() {
   return Math.floor(Math.random() * (150 - 50 + 1)) + 50;
@@ -8,46 +10,45 @@ function genereraRandomPris() {
 const restaurants = [
 { id: 1, namn: 'Kalles korvkiosk', categories: ['Korv', 'Hamburgare'], image: imageList[2],
 
-menu: [{namn: 'Korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
-       {namn: 'Två korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
-       {namn: 'Tre korv med bröd', pris: genereraRandomPris(), bild: imageList[1]},
-       {namn: 'Bara bröd', pris: genereraRandomPris(), bild: imageList[1]},
+menu: [{namn: 'Korv med bröd', pris: genereraRandomPris(),  menuImage: menuImageList.find(image => image.includes('korvmed'))},
+       {namn: 'Två korv med bröd', pris: genereraRandomPris(),  menuImage: menuImageList.find(image => image.includes('tvåkorv'))},
+       {namn: 'Tre korv med bröd', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('trekorv'))},
+       {namn: 'Bara bröd', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('bara'))},
 ]
 
 },
 { id: 2, namn: 'Saras Sushi', categories: ['Sushi', 'Ramen'], image: imageList[6],
 
-menu: [ {namn: 'Big Sushi', pris: genereraRandomPris(), bild: imageList[1]},
-        {namn: 'Little Sushi', pris: genereraRandomPris(),},
-        {namn: 'Family Sushi', pris: genereraRandomPris()},
-        {namn: 'Flame-out-your-ass Sushi', pris: genereraRandomPris()},
+menu: [ {namn: 'Big Sushi', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('big'))},
+        {namn: 'Little Sushi', pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('small'))},
+        {namn: 'Family Sushi', pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('family'))},
+        {namn: 'Flame-out-your-ass Sushi', pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('flame'))},
 ]
 },
 { id: 3, namn: 'Bertils Burgare',  categories: ['Hamburgare', 'Korv'], image: imageList[0],
 
-menu:  [{namn: 'FemOstburgare',pris: genereraRandomPris()},
-        {namn: 'Trippel Viltburgare', pris: genereraRandomPris()},
-        {namn: 'Frusen Burgare', pris: genereraRandomPris()},
-        {namn: 'Burgare utan kött', pris: genereraRandomPris()},
-        {namn: 'Handburger', pris: genereraRandomPris()},
+menu:  [{namn: 'FemOstburgare',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('fem'))},
+        {namn: 'Frusen Burgare', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('frozen'))},
+        {namn: 'Burgare utan kött', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('burgareUtan'))},
+        {namn: 'Handburger', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('hand'))},
 ]
 },
 { id: 4, namn: 'Kebab King', categories: ['Kebab', 'Sallad'], image: imageList[1],
 
     menu: [
-      { namn: "Kebab med bröd", pris: genereraRandomPris() },
-      { namn: "Kebabrulle", pris: genereraRandomPris() },
-      { namn: "Kebabtallrik", pris: genereraRandomPris() },
-      { namn: "Kebab med kebab o en lavett", pris: genereraRandomPris() },
+      { namn: "Kebab med bröd", pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('kebabMed')) },
+      { namn: "Kebabrulle", pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('kebabrulle')) },
+      { namn: "Kebabtallrik", pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('kebabTall')) },
+      { namn: "Kebab med kebab o en lavett", pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('kebabmed')) },
     ],
   },
 
 { id: 5, namn: 'Pasta Palace',  categories: ['Pasta', 'Pizza'], image: imageList[3], 
 
-menu: [ {namn: 'Pasta utan något', pris: genereraRandomPris()},
-        {namn: 'Kycklingpasta',pris: genereraRandomPris()},
-        {namn: 'Pasta mera', pris: genereraRandomPris()},
-        {namn: 'Pasta dig i papperskorgen', pris: genereraRandomPris()},
+menu: [ {namn: 'Pasta utan något', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('spaghettiV'))},
+        {namn: 'Kycklingpasta',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('kyckling'))},
+        {namn: 'Pasta mera', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('pastaM'))},
+        {namn: 'Pasta dig', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('pastaDig'))},
 ] 
 },
 
@@ -58,9 +59,9 @@ menu: [ {namn: 'Pasta utan något', pris: genereraRandomPris()},
     image: imageList[4],
 
     menu: [
-      { namn: "Pizza a la Penne", pris: genereraRandomPris() },
-      { namn: "RäkPizza", pris: genereraRandomPris() },
-      { namn: "Fullkorns Pizza", pris: genereraRandomPris() },
+      { namn: "Pizza a la Penne", pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('pizzaPe')) },
+      { namn: "RäkPizza", pris: genereraRandomPris(),menuImage: menuImageList.find(image => image.includes('rä')) },
+      { namn: "Fullkorns Pizza", pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('F'))},
     ],
   },
 
@@ -70,10 +71,10 @@ menu: [ {namn: 'Pasta utan något', pris: genereraRandomPris()},
     categories: ["Sallad"],
     image: imageList[5],
 
-menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
-        {namn:'CeasarsCypher Sallad',pris: genereraRandomPris()},
-        {namn:'Sallad utan sallad',pris: genereraRandomPris()},
-        {namn:'PizzaSallad', pris: genereraRandomPris()},
+menu: [ {namn:'Salladsrulle',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('sallads'))},
+        {namn:'CeasarsCypher Sallad',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('Cae'))},
+        {namn:'Sallad utan sallad',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('salladUt'))},
+        {namn:'PizzaSallad', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('pizzas'))},
 ] 
 },
 
@@ -83,10 +84,12 @@ menu: [ {namn:'Salladsrulle',pris: genereraRandomPris()},
     categories: ["Thai", "Sushi", "Sallad"],
     image: imageList[7],
 
-menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris()},
-        {namn: 'Ambulans på köpet', pris: genereraRandomPris()},
-        {namn: 'PadThai utan massage', pris: genereraRandomPris()},
-        {namn: 'Kyckllingspett med Holy Fuck Sauce', pris: genereraRandomPris()},]},
+menu: [ {namn: 'Bajsa blod i tre dagar',pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('bajsa'))},
+        {namn: 'Ambulans på köpet', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('amb'))},
+        {namn: 'PadThai utan massage', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('pad'))},
+        {namn: 'Kyckllingspett med Holy Fuck Sauce', pris: genereraRandomPris(), menuImage: menuImageList.find(image => image.includes('holy'))},
+      ],
+    },
 ];
 
 export default restaurants;
