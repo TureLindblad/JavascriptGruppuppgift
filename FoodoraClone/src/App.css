@@ -1,7 +1,3 @@
-body {
-  background-image: url(tempFood.jpg);
-  background-size: cover;
-}
 .navbar-display {
   display: flex;
   padding: 10px;
