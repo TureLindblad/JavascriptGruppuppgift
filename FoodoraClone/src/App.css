@@ -1,13 +1,11 @@
-body {
-  background-image: url(tempFood.jpg);
-  background-size: cover;
-}
 .navbar-display {
   display: flex;
   padding: 10px;
 }
 .navbar-logname {
-  padding-left: 22%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
   font-weight: bold;
   cursor: pointer;
 }
@@ -104,12 +102,6 @@ body {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg) scale(1.9);
 }
-
-header {
-    background-color: white;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.5em;
-}
 .navbar {
   display: inline;
   position: fixed;
@@ -118,14 +110,7 @@ header {
   background-color: red;
   z-index: 2;
   height: 60px;
-}
-.navbarList {
-  list-style: none;
-  display: flex;
-}
-.navbarListItem {
-  margin-right: 1em;
-  border-style: solid;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 body {
   background-image: url(./image/bakgrundmat.jpeg);
@@ -163,10 +148,12 @@ label {
   background-color: white;
   color: black;
   width: 10%;
-  margin: 5px;
+  margin: 10px;
   padding: 3px;
+  border-radius: 10px;
+  border: none;
 }
-button:hover {
+.startsida-btn:hover, .logout-btn:hover {
   transform: translateY(-2px);
 }
 input {
