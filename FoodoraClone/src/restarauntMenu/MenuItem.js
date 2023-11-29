@@ -23,7 +23,7 @@ const MenuItem = ({ namn, pris, image, decreaseItems, count }) => {
         </button>
       </div>
       <div>
-        {count} st i kundvagn :)
+        {count} st i kundvagn
       </div>
     </div>
   );
