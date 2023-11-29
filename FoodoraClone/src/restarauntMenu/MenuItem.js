@@ -1,29 +1,31 @@
 import React from 'react';
 import '../App.css';
 
-const MenuItem = ({ namn, pris, image, increaseItems, decreaseItems, count }) => {
-  return (
+const MenuItem = ({ namn, pris, image, decreaseItems, count }) => {
+  const addToCart = () => {
+    const item = { name: namn, price: pris }; // Update property names here
+    const existingCart = JSON.parse(localStorage.getItem('kundvagn')) || [];
+    const updatedCart = [...existingCart, item];
+    localStorage.setItem('kundvagn', JSON.stringify(updatedCart));
+  };
 
-      <div className="menyn">
-        <img src={image} className="menyBilder"></img>
-        <br></br>
-        <br></br>
-        
-        <div className="menyText">{namn}</div>
-        <br></br>
-        <br></br>
-        <div className="menyPris">
-        <button className = "knappn" onClick={increaseItems}>Lägg till i kundvagn <b>+</b></button>
+  return (
+    <div className="menyn">
+      <img src={image} className="menyBilder" alt="Food"></img>
+      <div className="menyText">{namn}</div>
+      <div className="menyPris">
+        <button className="knappn" onClick={addToCart}>
+          Lägg till i kundvagn <b>+</b>
+        </button>
         {pris} SEK
-        <button className = "knappn" onClick={decreaseItems}> <b>-</b> Ta bort ur kundvagn </button>
-        </div>
-        <div>
-        <br></br>
-        {count} st i kundvagn :)
-        </div>
-        <br></br>
-        <br></br> 
+        <button className="knappn" onClick={decreaseItems}>
+          <b>-</b> Ta bort ur kundvagn
+        </button>
       </div>
+      <div>
+        {count} st i kundvagn :)
+      </div>
+    </div>
   );
 };
 
