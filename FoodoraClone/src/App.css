@@ -3,7 +3,9 @@
   padding: 10px;
 }
 .navbar-logname {
-  padding-left: 20%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
   font-weight: bold;
   cursor: pointer;
 }
