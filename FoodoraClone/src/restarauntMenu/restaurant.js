@@ -33,14 +33,14 @@ const Restaurant = ({ restaurant, selectedItems}) => {
     <div>
 
       <main className='browsingMain'>
-      <h1 className = "namnet">Meny</h1>
+      
         {restaurant.menu.map((item, index) => (
             
               <div key={index}>
               <MenuItem
                 namn={item.namn}
                 pris={item.pris}
-                image={item.bild}
+                menuImage={item.menuImage}
                 increaseItems={() => increaseItems(item.namn)}
                 decreaseItems={() => decreaseItems(item.namn)}
                 count = {itemCounts[item.namn]}

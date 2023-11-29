@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
 
-const MenuItem = ({ namn, pris, image, increaseItems, decreaseItems, count }) => {
+const MenuItem = ({ namn, pris, menuImage, increaseItems, decreaseItems, count }) => {
   return (
 
-      <div className="menyn">
-        <img src={image} className="menyBilder"></img>
+    <div className="menyn">
+        <img src={menuImage} className="menyBilder"></img>
         <br></br>
         <br></br>
         
