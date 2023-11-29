@@ -98,7 +98,7 @@ const IconCart = () => {
   };
 
   return (
-    <div className="container">
+    <div className="containerCart">
       <div className="cart-icon" onClick={() => setIsCartVisible(!isCartVisible)}>
         🛒
       </div>

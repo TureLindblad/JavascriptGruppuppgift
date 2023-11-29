@@ -127,7 +127,7 @@ const Checkout = () => {
           <h2>Saldo: {balance} kr</h2>
           <h2>Totalt att betala: {calculateTotal()} kr</h2>
 
-          <button onClick={handleCheckout}>Betala</button>
+          <button className='pay' onClick={handleCheckout}>Betala</button>
         </div>
       </div>
     </div>

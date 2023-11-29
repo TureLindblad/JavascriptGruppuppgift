@@ -36,7 +36,7 @@ body {
   }
   */
   
-  button:hover {
+  .pay:hover {
     transform: translateY(-2px);
   }
   
