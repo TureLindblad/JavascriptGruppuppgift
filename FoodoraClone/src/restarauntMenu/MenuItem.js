@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-const MenuItem = ({ namn, pris, image, menuImage, decreaseItems, count }) => {
+const MenuItem = ({ namn, pris, image, menuImage, decreaseItems, increaseItems, count }) => {
   const addToCart = () => {
     const item = { name: namn, price: pris }; // Update property names here
     const existingCart = JSON.parse(localStorage.getItem('kundvagn')) || [];
